@@ -12,26 +12,26 @@ import java.util.Map;
 
 @WebServlet(name = "DictionaryServlet", urlPatterns = "/translate")
 public class DictionaryServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Map<String, String> dictionary = new HashMap<>();
-        dictionary.put("helle", "xin chào");
-        dictionary.put("how", "thế nào");
-        dictionary.put("book", "quyển vở");
-        String search = request.getParameter("txtSearch");
-        PrintWriter writer = response.getWriter();
-        writer.println("<html>");
-        String result = dictionary.get(search);
-        if (result != null) {
-            writer.println("Word: " + search);
-            writer.println("result: " + result);
-        } else {
-            writer.println("not found");
-        }
-        writer.println("</html>");
-    }
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        Map<String, String> dictionary = new HashMap<>();
+//        dictionary.put("helle", "xin chào");
+//        dictionary.put("how", "thế nào");
+//        dictionary.put("book", "quyển vở");
+//        String search = request.getParameter("txtSearch");
+//        PrintWriter writer = response.getWriter();
+//        writer.println("<html>");
+//        String result = dictionary.get(search);
+//        if (result != null) {
+//            writer.println("Word: " + search);
+//            writer.println("result: " + result);
+//        } else {
+//            writer.println("not found");
+//        }
+//        writer.println("</html>");
+//    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/translate");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("translate.jsp");
         dispatcher.forward(request,response);
     }
 }
